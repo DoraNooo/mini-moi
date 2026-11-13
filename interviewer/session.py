@@ -177,9 +177,17 @@ class Session:
             "Rien pour l'instant : c'est l'une des premières sessions."
         th = self.themes[self.theme_key]
         covered = sorted({self.themes[k]["titre"] for k in self._covered() if k in self.themes})
-        adresse = "Tu tutoies la personne." if self.cfg["interviewer"]["tutoiement"] else "Tu vouvoies la personne."
+        adresse = "Tu le tutoies." if self.cfg["interviewer"]["tutoiement"] else "Tu le vouvoies."
+        accord = {
+            "masculin": "Ton interlocuteur est un homme : accorde toujours au masculin quand tu parles de lui "
+                        "ou t'adresses à lui (« tu es occupé », « tu étais content », « tu es allé »).",
+            "féminin": "Ton interlocutrice est une femme : accorde toujours au féminin quand tu parles d'elle "
+                       "ou t'adresses à elle (« tu es occupée », « tu étais contente », « tu es allée »), "
+                       "même si le reste de ces instructions est rédigé au masculin.",
+        }.get(self.cfg["interviewer"].get("accord", "masculin"),
+              "Évite les tournures qui imposent d'accorder un adjectif ou un participe à ton interlocuteur.")
         repl = {
-            "{nom}": self.nom, "{adresse}": adresse, "{profil}": profil,
+            "{nom}": self.nom, "{adresse}": adresse, "{accord}": accord, "{profil}": profil,
             "{plan}": self._plan_text() or "Pas de plan particulier : suis le thème.",
             "{theme}": th["titre"], "{pistes}": "\n".join(f"- {p}" for p in th["pistes"]),
             "{themes_couverts}": ", ".join(covered) or "Aucun.",
@@ -267,11 +275,16 @@ class Session:
                 return
             consignes = []
             if h.action == K.PASSER or SKIP_RE.search(h.text):
-                consignes.append("La personne préfère ne pas continuer sur ce sujet. N'insiste pas : "
-                                 "dis-le avec douceur et passe à un sujet complètement différent.")
+                consignes.append("Il ne veut pas continuer sur ce sujet. Ne demande surtout pas pourquoi et ne "
+                                 "commente pas : enchaîne directement sur un sujet complètement différent et "
+                                 "concret, en une phrase.")
                 self._log(role="evenement", text="sujet passé", t_start=self.io.now())
             elif not h.had_speech:
-                consignes.append("La personne n'a rien dit. Reformule plus simplement ou propose une autre piste.")
+                consignes.append("Il n'a rien dit. Reformule plus simplement ou propose une autre piste.")
+            elif block == "debat":
+                consignes.append("Tu restes dans ton rôle de contradictrice : réponds à son argument par un "
+                                 "contre-argument court et franc (une phrase), puis relance-le pour qu'il te "
+                                 "convainque. Ne pose pas de question d'introspection.")
             if not warned and minutes - elapsed() < 1.2:
                 warned = True
                 consignes.append("Ce sujet se termine bientôt : pose une dernière question dessus.")
@@ -287,20 +300,21 @@ class Session:
         if minutes <= 0 or self.stopped:
             return
         self._log(role="evenement", text="début du bloc lecture", t_start=self.io.now())
-        intro = ("On termine par un petit exercice de lecture. Lis chaque phrase affichée à l'écran, "
-                 "naturellement, comme si tu parlais. Quand une émotion est indiquée, joue-la.")
+        intro = ("Avant d'entrer dans le vif du sujet, un exercice de lecture pour entraîner le modèle de voix. "
+                 "Lis chaque phrase affichée à l'écran, naturellement, comme si tu parlais. "
+                 "Quand une émotion est indiquée, joue-la sans retenue.")
         t0, t1 = self.io.say(intro, self.nom)
         self._log(role="agent", text=intro, t_start=t0, t_end=t1, block="lecture")
         phrases, emotions = self.lecture["phrases"], self.lecture["emotions"]
         start, n, paused0 = time.monotonic(), 0, self.paused
         while not self.stopped and (time.monotonic() - start - (self.paused - paused0)) / 60 < minutes:
-            if n % 4 == 3:
-                item = emotions[self.progress["lecture_emotions"] % len(emotions)]
-                self.progress["lecture_emotions"] += 1
+            if n % 3 == 2:  # une phrase à émotion sur trois
+                counter = "lecture_emotions"
+                item = emotions[self.progress[counter] % len(emotions)]
                 emotion, texte = item["emotion"], item["phrase"]
             else:
-                emotion, texte = None, phrases[self.progress["lecture_phrases"] % len(phrases)]
-                self.progress["lecture_phrases"] += 1
+                counter = "lecture_phrases"
+                emotion, texte = None, phrases[self.progress[counter] % len(phrases)]
             n += 1
             print("\n" + "=" * 70)
             if emotion:
@@ -315,6 +329,8 @@ class Session:
                 t = time.monotonic()
                 self.io.wait_resume()
                 self.paused += time.monotonic() - t
+            if h.had_speech or h.action == K.PASSER:
+                self.progress[counter] += 1  # phrase lue (ou volontairement sautée) : on avance
             if h.had_speech and h.action != K.PASSER:
                 self._log(role="lecture", text=texte, entendu=h.text, emotion=emotion,
                           t_start=h.t_start, t_end=h.t_end, block="lecture")
@@ -329,16 +345,17 @@ class Session:
             self._conversation_block("echauffement", "[CONSIGNE : Début de session. Salue la personne en une "
                                      "phrase et pose une question légère pour démarrer (sa journée, son humeur). "
                                      "N'aborde pas encore le thème principal.]")
+            self._lecture_block()  # tôt dans la session : voix fraîche, et jamais sautée si on arrête avant la fin
             if not self.stopped:
                 self._conversation_block("theme", f"[CONSIGNE : Passe maintenant en douceur au thème principal : "
                                          f"{th['titre']}. Pose une première question ouverte et concrète.]")
             if not self.stopped:
                 self._conversation_block("debat", "[CONSIGNE : Bloc débat. Annonce en une phrase que tu vas jouer "
-                                         "l'avocate du diable, puis prends le contre-pied d'une opinion qu'elle a "
-                                         "exprimée aujourd'hui (ou une position provocatrice sur le thème) et "
-                                         "demande-lui de te convaincre. Dans ce bloc, tu peux argumenter en deux "
-                                         "phrases maximum.]")
-            self._lecture_block()
+                                         "l'avocate du diable. Puis affirme une thèse tranchée, contraire à ce qu'il "
+                                         "pense : reprends l'idée de débat du plan s'il y en a une, sinon prends le "
+                                         "contre-pied d'une opinion qu'il a exprimée aujourd'hui. Formule-la comme une "
+                                         "affirmation provocante (« Moi je pense que… »), pas comme une question "
+                                         "d'introspection, et mets-le au défi de te faire changer d'avis.]")
             if not self.stopped:
                 text = "[CONSIGNE : La session est terminée. Remercie la personne en une ou deux phrases chaleureuses, sans poser de question.]"
                 self.messages.append({"role": "user", "content": text})

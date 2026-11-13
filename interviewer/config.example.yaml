@@ -5,6 +5,7 @@ data_dir: data                  # dossier des enregistrements (ignoré par git, 
 interviewer:
   nom: Léa                      # nom de l'intervieweuse (purement cosmétique)
   tutoiement: true
+  accord: masculin              # masculin | féminin | neutre — accord des adjectifs quand Léa vous parle
 
 audio:
   input_device: Yeti            # morceau du nom du micro (voir "python -m interviewer devices"), ou null = défaut
@@ -36,7 +37,7 @@ tts:                            # voix de l'intervieweuse (doit être différent
   voices_dir: voices
 
 session:                        # durées des blocs, en minutes
-  echauffement: 3
+  echauffement: 3               # ordre : échauffement → lecture → thème → débat
   theme: 25
   debat: 6
   lecture: 6

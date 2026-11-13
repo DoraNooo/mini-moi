@@ -126,8 +126,8 @@ def test_session_passer_et_quitter(tmp_path):
     s.run()
     assert "CONSIGNE" in llm.seen[0]                       # ouverture
     assert llm.seen[1] == "Ça va bien"
-    assert "ne pas continuer" in llm.seen[2]               # touche s
-    assert "ne pas continuer" in llm.seen[3]               # « on passe » à l'oral
+    assert "ne veut pas continuer" in llm.seen[2]               # touche s
+    assert "ne veut pas continuer" in llm.seen[3]               # « on passe » à l'oral
     assert s.stopped
     md = (s.dir / "transcript.md").read_text(encoding="utf-8")
     assert "Ça va bien" in md and "sujet passé" in md
@@ -142,3 +142,29 @@ def test_theme_depuis_plan(tmp_path):
     s = Session(cfg, ScriptIO([]), FakeLLM(), None)
     assert s.theme_key == "humour"
     assert "- piste" in s.messages[0]["content"]
+
+
+def test_accord_et_regles_dans_le_prompt(tmp_path):
+    cfg = load_config()
+    cfg["data_dir"] = tmp_path
+    s = Session(cfg, ScriptIO([]), FakeLLM(), "metier")
+    prompt = s.messages[0]["content"]
+    assert "masculin" in prompt and "{accord}" not in prompt
+    assert "jamais** pourquoi" in prompt
+    cfg["interviewer"]["accord"] = "féminin"
+    assert "au féminin" in Session(cfg, ScriptIO([]), FakeLLM(), "metier").messages[0]["content"]
+
+
+def test_ordre_lecture_avant_theme_et_debat_contradictoire(tmp_path):
+    cfg = load_config()
+    cfg["data_dir"] = tmp_path
+    cfg["session"] = {"echauffement": 0, "theme": 0, "debat": 5, "lecture": 0.0003}
+    llm = SpyLLM()
+    io = ScriptIO([("phrase lue", K.FIN), ("je ne suis pas d'accord", K.FIN), ("", K.QUITTER)])
+    s = Session(cfg, io, llm, "metier")
+    s.run()
+    blocks = [t.get("block") for t in s.turns if t["role"] in ("moi", "lecture")]
+    assert blocks[0] == "lecture"
+    assert "avocate du diable" in llm.seen[0]
+    assert "contradictrice" in llm.seen[1]
+    assert s.progress["lecture_phrases"] == 1

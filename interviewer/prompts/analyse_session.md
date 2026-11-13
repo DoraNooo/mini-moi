@@ -20,9 +20,18 @@ s'ils existent. Puis :
    phrase, longueur typique des réponses, registre, humour, manière d'hésiter.
 3. **Écris `data/plans/prochaine_session.md`** : thème conseillé (clé de
    `interviewer/questions/themes.yaml`) sur la première ligne au format `theme: <clé>`,
-   puis 5 à 8 pistes concrètes qui comblent les trous du profil ou creusent des sujets
-   ouverts, et une idée de position contradictoire pour le bloc débat.
-4. **Donne-moi un bilan court** : minutes de parole utile, qualité des réponses
+   puis 5 à 8 pistes **concrètes** (« raconte une fois où… ») qui comblent les trous du
+   profil ou creusent des sujets ouverts, puis une ligne `Idée de débat : <thèse tranchée>`
+   contraire à ses opinions connues.
+4. **Écris `data/sessions/<id>/corrections.md`** : mots ou noms mal transcrits par Whisper
+   (avec la forme correcte probable) et phrases inventées par Whisper (« Sous-titrage… »,
+   « Merci d'avoir regardé… ») avec leur horodatage. La phase 2 s'en servira pour nettoyer
+   les données de voix.
+5. **Vérifie le comportement de Léa** : accords grammaticaux, refus respectés sans
+   demander pourquoi, débat réellement contradictoire, questions concrètes plutôt
+   qu'abstraites. Liste les écarts dans le bilan (ils servent à corriger
+   `interviewer/prompts/system.md`).
+6. **Donne-moi un bilan court** : minutes de parole utile, qualité des réponses
    (spontanées ou trop courtes), ce qui manque pour la voix (émotions, registres) et
    pour la persona.
 

@@ -2,11 +2,21 @@
 from __future__ import annotations
 
 import os
+import re
 import site
 import sys
 from pathlib import Path
 
 import numpy as np
+
+# Phrases que Whisper « invente » sur les silences (issues des sous-titres de ses données d'entraînement)
+HALLUCINATIONS = re.compile(
+    r"(sous-titr\w*[^.!?]*|amara\.org[^.!?]*|merci d'avoir regardé[^.!?]*|"
+    r"abonnez-vous[^.!?]*|ST'? ?\d+)[.!?]?", re.I)
+
+
+def strip_hallucinations(text: str) -> str:
+    return re.sub(r"\s+", " ", HALLUCINATIONS.sub("", text)).strip()
 
 
 def _add_nvidia_dll_dirs():
@@ -49,4 +59,5 @@ class Transcriber:
             return ""
         segments, _ = self.model.transcribe(audio16k, language=self.language, beam_size=5,
                                             condition_on_previous_text=False, vad_filter=True)
-        return " ".join(s.text.strip() for s in segments).strip()
+        text = " ".join(s.text.strip() for s in segments if s.no_speech_prob < 0.6)
+        return strip_hallucinations(text)

@@ -20,8 +20,9 @@ Chaque phase a un **critère de sortie** : on ne passe pas à la suivante sans l
 - [x] Enregistreur : audio Blue Yeti WAV + `meta.json` horodaté + `transcript.md`
 - [x] Commande de diagnostic `python -m interviewer test`
 - [x] Prompt d'analyse inter-sessions pour Claude Code local
-- [ ] Installation sur le PC Windows + `test` au vert *(vous)*
-- [ ] Session pilote de 20 min → vérification qualité audio *(vous, puis analyse ensemble)*
+- [x] Installation sur le PC Windows + `test` au vert
+- [x] Session pilote (13/11, 20 min, thème enfance) + première analyse inter-sessions
+- [x] Correctifs v0.2 suite au pilote : accords, refus, lecture avancée en début de session, vrai débat, filtre des hallucinations Whisper
 - [ ] *(optionnel)* vidéo webcam enregistrée en parallèle via OBS, réserve V2
 - **Sortie :** une session pilote exploitable de bout en bout.
 
