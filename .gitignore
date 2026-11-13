@@ -1,0 +1,29 @@
+# Données personnelles brutes : ne JAMAIS les committer (voir docs/ETHIQUE-SECURITE.md)
+data/*
+!data/README.md
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.mp4
+*.mov
+*.mkv
+*.webm
+
+# Modèles entraînés (poids = votre identité, à stocker chiffrés hors git)
+models/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+
+# Secrets
+.env
+*.key
+
+# Divers
+__pycache__/
+.venv/
+node_modules/
+.DS_Store
