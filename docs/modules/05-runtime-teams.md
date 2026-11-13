@@ -8,7 +8,7 @@ Teams ne sait rien du clone : il voit une **caméra virtuelle** et un **micro vi
 - Audio sortant : TTS → câble audio virtuel (VB-Cable sous Windows, BlackHole sous macOS) → micro Teams.
 - Audio entrant : sortie haut-parleur Teams → câble virtuel → STT du clone.
 
-## Budget de latence (mode B)
+## Budget de latence
 
 | Étape | Cible |
 |---|---|

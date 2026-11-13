@@ -10,18 +10,15 @@ Un double numérique capable de :
    micro-expressions crédibles ;
 3. **répondre comme vous** — vos opinions, vos souvenirs, votre vocabulaire, votre humour.
 
-## Deux modes d'usage (à trancher, cf. QUESTIONS-OUVERTES)
+## Mode cible : autonome (décidé, ADR-0003)
 
-| | Mode A — « Marionnette » | Mode B — « Autonome » |
-|---|---|---|
-| Qui parle ? | Vous (ou quelqu'un) en direct | Un LLM avec votre persona |
-| Ce que fait le système | Convertit la voix/visage en temps réel (speech-to-speech, face reenactment) | Génère le texte → voix clonée → visage animé |
-| Difficulté | Moyenne | Élevée (latence, cohérence, persona) |
-| Latence cible | < 300 ms | < 1,5 s entre fin de question et début de réponse |
-| Utilité | Démo, tests de crédibilité, accessibilité | Le vrai « mini-moi » |
+Le clone **répond seul** : il écoute la réunion, un LLM nourri de votre persona formule
+la réponse, la voix clonée la prononce, l'avatar l'anime. Vous n'êtes pas présent.
 
-**Recommandation :** construire le mode A d'abord (il valide voix + visage isolément),
-puis le mode B qui réutilise les mêmes briques.
+Le « mode marionnette » (vous parlez, le système transforme voix/visage) est **abandonné**
+comme objectif. Ses briques (voix, visage) restent testées isolément pendant les phases 3-4.
+
+Les interlocuteurs savent toujours qu'ils parlent au clone.
 
 ## Définition de « convaincant » (mesurable)
 
@@ -34,7 +31,8 @@ On ne se contente pas d'impressions. Critères de sortie proposés :
   Pas d'artefacts visibles aux bords du visage, aux dents, aux lunettes, aux mains.
 - **Persona** : 20 questions posées par un proche, réponses du clone vs les vôtres —
   le proche ne doit pas les distinguer au-delà du hasard.
-- **Temps réel** : 10 minutes de visio sans décrochage, latence conforme au mode.
+- **Temps réel** : 10 minutes de visio sans décrochage, latence < 1,5 s entre la fin
+  d'une question et le début de la réponse.
 
 ## Hors périmètre (pour l'instant)
 

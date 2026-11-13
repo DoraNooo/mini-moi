@@ -3,16 +3,20 @@
 Ce dont le chef de projet a besoin pour passer en phase 1. Répondez directement dans ce
 fichier ou dans la conversation.
 
+## Réponses reçues
+- ✅ Machine : 7800X3D, 32 Go DDR5, RTX 4080 16 Go (ADR-0002)
+- ✅ Mode : autonome uniquement (ADR-0003)
+- ✅ Interlocuteurs toujours informés qu'il s'agit du clone
+
 ## Matériel et budget
-1. **Quel ordinateur ?** OS, carte graphique (modèle + VRAM). Pas de GPU NVIDIA → on
-   loue du GPU à l'heure pour l'entraînement, et le temps réel devient plus délicat.
+1. **Système d'exploitation** : Windows 11 ? (impacte caméra/micro virtuels)
 2. **Matériel de captation** dispo : micro, caméra/smartphone, éclairage, casque ?
 3. **Budget mensuel** acceptable hors abonnement Claude (API Claude, GPU loué, éventuels
    services voix/vidéo pour les POC) ?
 
 ## Usage
-4. **Mode visé** : A (marionnette, c'est vous qui parlez) ou B (autonome, le clone répond seul) ? Les deux ?
-5. **Contexte d'usage** : réunions perso, démo, réunions pro ? Avec des interlocuteurs informés ?
+5. **Contexte d'usage** : réunions perso, démo, réunions pro ? (détermine les garde-fous et
+   la connaissance « métier » à donner au clone : agenda, documents, projets en cours)
 6. **Langue(s)** : français uniquement ?
 
 ## Confidentialité

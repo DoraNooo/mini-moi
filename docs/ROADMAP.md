@@ -4,9 +4,10 @@ Chaque phase a un **critère de sortie** : on ne passe pas à la suivante sans l
 
 ## Phase 0 — Cadrage *(en cours)*
 - [x] Mise au propre de la vision et de l'architecture
-- [ ] Réponses aux [questions ouvertes](QUESTIONS-OUVERTES.md) (matériel, budget, mode A/B, usage visé)
+- [x] Matériel (ADR-0002) et mode autonome (ADR-0003)
+- [ ] Réponses aux [questions ouvertes](QUESTIONS-OUVERTES.md) restantes (OS, budget API, contexte d'usage)
 - [ ] Choix du stockage chiffré pour `data/`
-- **Sortie :** décisions ADR-0002 (matériel) et ADR-0003 (mode cible) actées.
+- **Sortie :** questions bloquantes répondues, stockage chiffré en place.
 
 ## Phase 1 — Agent interviewer + enregistrement
 - [ ] Banque de questions v1 (cf. module 03)

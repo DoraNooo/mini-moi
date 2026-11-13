@@ -34,7 +34,6 @@ de retrouver plus tard « la réponse à la question X » et sert de base à la 
 |---|---|---|
 | Transcription | faster-whisper / WhisperX | — |
 | Voix TTS | F5-TTS, XTTS-v2, GPT-SoVITS (fine-tune) | ElevenLabs (Professional Voice Clone) |
-| Voix temps réel (mode A) | RVC (speech-to-speech) | ElevenLabs Voice Changer |
 | Visage temps réel | LivePortrait, MuseTalk (lip-sync), avatars Gaussian splatting | HeyGen / Tavus (avatars interactifs) |
 | LLM persona | Claude via API + RAG local | — |
 | Sortie Teams | OBS Virtual Camera + câble audio virtuel (VB-Cable / BlackHole) | — |
@@ -45,12 +44,26 @@ des coûts et de la confidentialité (vos données biométriques ne quittent pas
 Les versions et licences exactes sont à revérifier au moment des POC (l'écosystème bouge
 vite ; certaines licences, ex. XTTS-v2, interdisent l'usage commercial).
 
-## Contraintes matérielles
+## Matériel (ADR-0002)
 
-- **Entraînement** : GPU NVIDIA ≥ 12 Go VRAM (24 Go confortable) — local ou location
-  à l'heure (RunPod, Vast.ai, Lambda…).
-- **Runtime temps réel** : GPU local recommandé (la latence réseau d'un GPU distant
-  s'ajoute à celle du pipeline).
+Ryzen 7 7800X3D · 32 Go DDR5 · **RTX 4080 (16 Go VRAM)**.
+
+Stratégie retenue : **tout en local sauf le LLM** (API Claude, paiement à l'usage).
+Raison : 16 Go de VRAM suffisent pour STT + TTS + avatar en simultané, pas pour
+y ajouter un LLM assez bon pour imiter une personne.
+
+Budget VRAM indicatif au runtime :
+
+| Brique | VRAM |
+|---|---|
+| STT (faster-whisper large-v3-turbo) | ~2-3 Go |
+| TTS voix clonée | ~3-6 Go |
+| Avatar temps réel | ~4-8 Go |
+| Teams + OBS + encodage | ~1 Go |
+| **Total** | **~10-16 Go** → serré mais jouable, à mesurer |
+
+Entraînement : fine-tune voix OK en local ; avatar personnalisé faisable en local mais
+long (prévoir éventuellement quelques heures de GPU loué, ~1 €/h, ponctuellement).
 - **Budget LLM** : l'abonnement Claude Pro couvre le pilotage du projet ici, mais
   l'agent interviewer et le runtime appellent l'API Claude, facturée à part
   (quelques euros par heure d'entretien — à chiffrer en phase 1).
