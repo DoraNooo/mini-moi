@@ -1,4 +1,4 @@
-"""Point d'entrée : python -m interviewer {devices,test,session}."""
+"""Point d'entrée : python -m interviewer {devices,test,session,libre,transcrire}."""
 from __future__ import annotations
 
 import argparse
@@ -150,6 +150,34 @@ def cmd_session(cfg, args):
     return 0
 
 
+def cmd_libre(cfg, args):
+    from .keys import Keys
+    from .libre import record
+
+    print("Enregistrement libre : seul VOTRE micro est enregistré (pas le son de Discord ni du jeu).")
+    print("Rappels : casque obligatoire, et prévenez vos amis que vous enregistrez votre voix.")
+    record(cfg, args.tag, args.max_heures, Keys())
+    return 0
+
+
+def cmd_transcrire(cfg, args):
+    from pathlib import Path
+
+    from .libre import pending, transcribe
+    from .stt import Transcriber
+
+    folders = [Path(args.dossier)] if args.dossier else pending(cfg)
+    if not folders:
+        print("Rien à transcrire.")
+        return 0
+    stt = Transcriber(cfg)
+    for folder in folders:
+        print(f"Transcription de {folder.name}…")
+        transcribe(cfg, folder, stt)
+    print("\nÉtape suivante : analyse en local (interviewer/prompts/analyse_session.md).")
+    return 0
+
+
 class _LateIO:
     """Délègue à l'E/S vocale, créée après le dossier de session."""
 
@@ -175,9 +203,16 @@ def main(argv=None):
     s.add_argument("--theme", help="clé de thème (voir interviewer/questions/themes.yaml)")
     s.add_argument("--minutes", type=float, help="durée totale (les blocs sont mis à l'échelle)")
     s.add_argument("--texte", action="store_true", help="mode texte (sans micro), pour tester")
+    lb = sub.add_parser("libre", help="enregistrer votre voix pendant une activité (ex. Discord)")
+    lb.add_argument("--tag", default="discord", help="étiquette du registre (défaut : discord)")
+    lb.add_argument("--max-heures", type=float, default=4, help="arrêt automatique (défaut : 4 h)")
+    tr = sub.add_parser("transcrire", help="transcrire les enregistrements libres en attente")
+    tr.add_argument("dossier", nargs="?", help="un dossier précis (défaut : tous ceux en attente)")
     args = ap.parse_args(argv)
     cfg = load_config(args.config)
-    return {"devices": cmd_devices, "test": cmd_test, "session": cmd_session}[args.cmd](cfg, args) or 0
+    cmds = {"devices": cmd_devices, "test": cmd_test, "session": cmd_session,
+            "libre": cmd_libre, "transcrire": cmd_transcrire}
+    return cmds[args.cmd](cfg, args) or 0
 
 
 if __name__ == "__main__":

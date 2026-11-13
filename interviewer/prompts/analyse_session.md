@@ -35,4 +35,15 @@ s'ils existent. Puis :
    (spontanées ou trop courtes), ce qui manque pour la voix (émotions, registres) et
    pour la persona.
 
+### Cas d'un enregistrement libre (`data/libre/…`, ex. Discord)
+Seule la voix de l'utilisateur y figure : les répliques sont hors contexte, ne les
+interprète pas comme des opinions. Dans ce cas :
+- n'ajoute au profil que des faits explicites et certains ;
+- dans `style_oral.md`, crée ou complète une section **« Registre détendu (entre amis / jeu) »**,
+  séparée du registre normal : vocabulaire, jurons, blagues, exclamations, rires. Le clone
+  pro ne doit **pas** utiliser ce registre en réunion, mais il doit savoir qu'il existe ;
+- liste dans `corrections.md` les passages les plus expressifs (rire, enthousiasme,
+  agacement), avec leur horodatage et l'émotion : ce sont des extraits précieux pour la voix ;
+- ne crée pas de plan de session.
+
 Garde `profil.md` sous 3 000 mots : il est injecté dans le prompt de l'intervieweuse.

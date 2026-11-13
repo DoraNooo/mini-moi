@@ -15,6 +15,10 @@ vous usurper**. Ces règles protègent d'abord vous.
   enregistrement des réunions, confidentialité). Assister à une réunion via un clone
   sans accord peut poser des problèmes contractuels.
 - Toute personne qui apparaît ou est entendue dans les enregistrements doit avoir consenti.
+- **Enregistrements libres (Discord, etc.)** : seul le micro de l'utilisateur est enregistré,
+  jamais le son de Discord. Casque obligatoire, et les amis sont prévenus. Enregistrer la
+  voix de quelqu'un à son insu, dans un cadre privé, est interdit en France
+  (art. 226-1 du Code pénal).
 
 ## 2. Vos données sont biométriques
 

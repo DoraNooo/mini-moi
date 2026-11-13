@@ -3,7 +3,6 @@ import threading
 import time
 
 import numpy as np
-import pytest
 
 from interviewer import keys as K
 from interviewer.audio import Recorder, resample_to_16k
@@ -168,3 +167,38 @@ def test_ordre_lecture_avant_theme_et_debat_contradictoire(tmp_path):
     assert "avocate du diable" in llm.seen[0]
     assert "contradictrice" in llm.seen[1]
     assert s.progress["lecture_phrases"] == 1
+
+
+def test_transcription_libre_par_tranches(tmp_path):
+    import json
+    from types import SimpleNamespace
+
+    import soundfile as sf
+
+    from interviewer.libre import _save, pending, transcribe
+
+    cfg = load_config()
+    cfg["data_dir"] = tmp_path
+    folder = tmp_path / "libre" / "2026-11-14_2200_discord"
+    folder.mkdir(parents=True)
+    sf.write(str(folder / "audio.flac"), np.zeros(SR * 25, dtype=np.float32), SR, subtype="PCM_16")
+    _save(folder, {"id": "x", "mode": "libre", "tag": "discord", "audio": "audio.flac", "transcrit": False, "turns": []})
+    assert pending(cfg) == [folder]
+
+    calls = []
+
+    def fake_transcribe(audio, **kw):
+        calls.append(len(audio))
+        return [SimpleNamespace(start=1.0, end=3.0, text=" Ah non, il m'a eu ! Sous-titrage ST' 501", no_speech_prob=0.1),
+                SimpleNamespace(start=4.0, end=5.0, text=" bruit", no_speech_prob=0.9)], None
+
+    stt = SimpleNamespace(model=SimpleNamespace(transcribe=fake_transcribe), language="fr")
+    transcribe(cfg, folder, stt, chunk_s=10)
+    meta = json.loads((folder / "meta.json").read_text(encoding="utf-8"))
+    assert len(calls) == 3                                   # 25 s en tranches de 10 s
+    assert [t["t_start"] for t in meta["turns"]] == [1.0, 11.0, 21.0]  # horodatage absolu
+    assert meta["turns"][0]["text"] == "Ah non, il m'a eu !"
+    assert meta["turns"][0]["registre"] == "discord"
+    assert pending(cfg) == []
+    progress = json.loads((tmp_path / "progress.json").read_text(encoding="utf-8"))
+    assert progress["libre"][0]["minutes_parole"] == 0.1

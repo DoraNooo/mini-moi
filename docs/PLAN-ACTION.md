@@ -13,6 +13,22 @@
   - 1 h de parole utile : environ 4 sessions ;
   - 3 h de parole utile : environ 10 à 12 sessions.
 
+## Bonus : vos parties Discord
+
+`python -m interviewer libre` enregistre votre voix pendant que vous jouez (voir
+`interviewer/README.md`, section 4 bis). C'est complémentaire des entretiens :
+
+| | Entretiens avec Léa | Parties Discord |
+|---|---|---|
+| Qualité audio | Très bonne | Moyenne : clics, cris, phrases courtes |
+| Émotions | Plutôt calme | **Excellent** : rire, enthousiasme, agacement |
+| Persona | **Excellent** (contexte, opinions) | Faible (répliques sans contexte) |
+| Registre | Normal / pro | Détendu, à ne pas utiliser en réunion |
+
+Les parties ne remplacent pas les sessions avec Léa, mais elles comblent leur point faible :
+les émotions. Elles comptent pour environ la moitié de leur durée dans l'objectif voix, car
+il y a beaucoup de bruit et de fragments à écarter.
+
 ## Les jalons
 
 | # | Jalon | Ce que vous testez | Données nécessaires | Quand (estimation) |

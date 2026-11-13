@@ -130,6 +130,42 @@ Vous pouvez aussi simplement **dire** « on passe » ou « on fait une pause ».
 
 ---
 
+## 4 bis. Enregistrement libre : vos parties Discord
+
+Pendant que vous jouez avec vos amis, le programme enregistre **uniquement votre micro**.
+Il n'enregistre ni le son de Discord, ni celui du jeu, ni la voix de vos amis. C'est la
+meilleure source pour ce que les entretiens captent mal : rires, enthousiasme, agacement,
+exclamations, et votre façon de parler entre amis.
+
+**Avant de lancer le jeu**, dans une fenêtre PowerShell avec l'environnement activé :
+```powershell
+python -m interviewer libre
+```
+Ensuite :
+- restez silencieux 3 secondes pendant la calibration, puis lancez Discord et le jeu ;
+- Discord et l'enregistreur partagent le Yeti sans problème ;
+- pour arrêter, revenez sur la fenêtre PowerShell et tapez `q` (ou Ctrl+C) ;
+- l'enregistrement s'arrête tout seul au bout de 4 h (réglable avec `--max-heures`) ;
+- pour une autre activité, changez l'étiquette, par exemple `--tag appel`.
+
+**Après la partie**, quand le PC est libre (prévoir quelques minutes par heure enregistrée) :
+```powershell
+python -m interviewer transcrire
+```
+Puis faites l'analyse locale, comme pour une session.
+
+**Règles :**
+- **Casque obligatoire** : avec des haut-parleurs, le Yeti capterait vos amis.
+- **Prévenez vos amis** que vous enregistrez votre voix pour un projet. Ce n'est pas la leur,
+  mais le micro peut capter une voix proche, et c'est plus correct.
+- Clavier mécanique ? Les clics seront enregistrés. Ce n'est pas grave, le pipeline les
+  filtrera, mais éloignez le Yeti du clavier si vous pouvez.
+- Pendant le jeu, **rien ne tourne sur la carte graphique** : aucun impact sur vos FPS.
+
+**Ce qui est produit**, dans `data/libre/<date>_discord/` :
+- `audio.flac` : enregistrement sans perte, compact ;
+- `meta.json` et `transcript.md`, après transcription.
+
 ## 5. Après chaque session : l'analyse (5 min)
 
 Ouvrez **Claude Code en local**, avec l'application de bureau ou le terminal, dans le dossier
