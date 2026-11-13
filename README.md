@@ -3,7 +3,7 @@
 > Créer un double numérique (voix + visage + personnalité) suffisamment fidèle pour tenir
 > une conversation en visio (Microsoft Teams).
 
-**Statut :** Phase 0 — cadrage. Rien n'est encore construit ; ce dépôt contient le plan.
+**Statut :** Phase 0 — cadrage (presque terminée). Prochaine étape : phase 1, l'agent interviewer.
 
 ## Le projet en une image
 
@@ -47,6 +47,7 @@ collectes de données séparées, on en fait une, bien conçue.
 | [docs/modules/03-agent-interviewer.md](docs/modules/03-agent-interviewer.md) | L'agent « psychologue » et la collecte |
 | [docs/modules/04-persona.md](docs/modules/04-persona.md) | Le « cerveau » : comment le clone sait ce que vous savez |
 | [docs/modules/05-runtime-teams.md](docs/modules/05-runtime-teams.md) | Brancher le tout dans Teams |
+| [docs/modules/06-reunion-pro.md](docs/modules/06-reunion-pro.md) | Présenter un document, suivre une réunion, répondre |
 | [docs/PROTOCOLE-CAPTURE.md](docs/PROTOCOLE-CAPTURE.md) | Matériel et conditions d'enregistrement |
 | [docs/ETHIQUE-SECURITE.md](docs/ETHIQUE-SECURITE.md) | Cadre légal, transparence, protection de vos données |
 | [docs/QUESTIONS-OUVERTES.md](docs/QUESTIONS-OUVERTES.md) | Ce que le chef de projet doit savoir de vous pour avancer |

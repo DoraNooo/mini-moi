@@ -7,16 +7,19 @@ fichier ou dans la conversation.
 - ✅ Machine : 7800X3D, 32 Go DDR5, RTX 4080 16 Go (ADR-0002)
 - ✅ Mode : autonome uniquement (ADR-0003)
 - ✅ Interlocuteurs toujours informés qu'il s'agit du clone
+- ✅ OS : Windows 11
+- ✅ Captation : Blue Yeti + webcam Logitech 720p (voir PROTOCOLE-CAPTURE)
+- ✅ Usage : réunions **pro** — suivre, répondre quand interrogé, présenter un document (module 06)
+- ✅ Pas de clé API Claude pour démarrer (ADR-0004)
 
 ## Matériel et budget
-1. **Système d'exploitation** : Windows 11 ? (impacte caméra/micro virtuels)
-2. **Matériel de captation** dispo : micro, caméra/smartphone, éclairage, casque ?
+1. **Smartphone** récent disponible pour filmer les sessions (meilleure image que la webcam) ?
+2. **Casque** ou écouteurs filaires disponibles ?
 3. **Budget mensuel** acceptable hors abonnement Claude (API Claude, GPU loué, éventuels
    services voix/vidéo pour les POC) ?
 
 ## Usage
-4. **Contexte d'usage** : réunions perso, démo, réunions pro ? (détermine les garde-fous et
-   la connaissance « métier » à donner au clone : agenda, documents, projets en cours)
+4. **Logiciel de présentation** : PowerPoint ? Teams en client desktop ou web ?
 5. **Langue(s)** : français uniquement ?
 
 ## Confidentialité

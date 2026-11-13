@@ -34,11 +34,15 @@ Chaque phase a un **critère de sortie** : on ne passe pas à la suivante sans l
 - [ ] Test en conditions Teams (compression, 720p)
 - **Sortie :** critères visage atteints.
 
-## Phase 5 — Persona + intégration temps réel
+## Phase 5 — Persona + intégration Teams (voir module 06)
 - [ ] Base de connaissance « moi » (RAG) + prompt de personnalité
-- [ ] Pipeline streaming STT → LLM → TTS → avatar
-- [ ] Caméra/micro virtuels, test en réunion Teams privée (vous + un complice informé)
-- **Sortie :** 10 min de conversation fluide, latence < 1,5 s.
+- [ ] **5a — Présentation** : document préparé → script dans votre style → audio + vidéo
+      **pré-générés** → diffusion dans Teams avec avance des slides. *(le plus simple :
+      aucune contrainte de latence — premier livrable « pro »)*
+- [ ] **5b — Questions/réponses en 1-à-1** : pipeline streaming STT → LLM → TTS → avatar
+- [ ] **5c — Réunion à plusieurs** : suivre la discussion, détecter quand on l'interroge
+- **Sortie :** une présentation de 5 min + 10 min de Q/R fluides (latence < 1,5 s)
+  devant un collègue informé.
 
 ## Phase 6 — Itération
 Boucle : nouvelles sessions ciblées sur les faiblesses détectées → réentraînement.

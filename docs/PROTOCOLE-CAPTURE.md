@@ -13,6 +13,30 @@ La qualité des modèles dépend à 80 % de la qualité des enregistrements. Mie
 | Écoute de l'agent | Casque (indispensable pour ne pas réenregistrer l'agent) | Intra-auriculaires discrets (invisibles à l'image) |
 | Pièce | Calme, peu d'écho (rideaux, tapis) | Idem + porte fermée, pas de ventilateur |
 
+## Votre matériel (Blue Yeti + Logitech 720p)
+
+**Blue Yeti** — très bon pour ce projet, à condition de :
+- le régler en **mode cardioïde** (le cœur sur le sélecteur arrière) ;
+- parler **dans le côté** (face avec le logo), pas dans le dessus : c'est un micro à
+  prise latérale ;
+- gain bas (≈ 1/3) et bouche à 15-20 cm, avec un filtre anti-pop (~10 €) ;
+- le poser sur un support découplé ou une serviette pliée (il capte les chocs sur le bureau) ;
+- format d'enregistrement Windows : 48 kHz (Paramètres son → Propriétés du Yeti).
+
+Le Yeti est sensible : il capte la pièce et l'écho. Rideaux fermés, porte fermée,
+et **casque obligatoire** pour entendre l'agent.
+
+**Webcam Logitech 720p** — c'est le point faible pour entraîner le visage
+(peu de détails sur les yeux, la bouche, les dents). Recommandation :
+- **caméra principale = smartphone** sur pied, en 1080p ou 4K 30 fps, enregistrement
+  local sur le téléphone, mode « pro »/verrouillage expo si dispo ;
+- **caméra secondaire = la webcam**, enregistrée en même temps : elle donne des données
+  dans les conditions réelles Teams (le clone sera diffusé en 720p de toute façon).
+- Synchronisation : un clap devant les deux caméras + le micro en début de session.
+
+Éclairage : une lampe de bureau orientée vers un mur blanc face à vous (lumière
+diffuse) suffit pour commencer ; fenêtre jamais dans le dos.
+
 ## Réglages
 
 - Audio : WAV 48 kHz, 24 bits, crête vers -12 dBFS, **aucun traitement** (pas d'AGC,
