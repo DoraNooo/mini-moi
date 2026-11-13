@@ -43,7 +43,7 @@ collectes de données séparées, on en fait une, bien conçue.
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Pipeline technique de bout en bout |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | Phases, jalons, critères de sortie |
 | [docs/modules/01-voix.md](docs/modules/01-voix.md) | Clonage de la voix |
-| [docs/modules/02-visage.md](docs/modules/02-visage.md) | Avatar vidéo |
+| [docs/modules/02-visage.md](docs/modules/02-visage.md) | Avatar vidéo *(V2)* |
 | [docs/modules/03-agent-interviewer.md](docs/modules/03-agent-interviewer.md) | L'agent « psychologue » et la collecte |
 | [docs/modules/04-persona.md](docs/modules/04-persona.md) | Le « cerveau » : comment le clone sait ce que vous savez |
 | [docs/modules/05-runtime-teams.md](docs/modules/05-runtime-teams.md) | Brancher le tout dans Teams |

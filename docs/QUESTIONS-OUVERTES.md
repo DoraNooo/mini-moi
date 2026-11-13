@@ -11,9 +11,10 @@ fichier ou dans la conversation.
 - ✅ Captation : Blue Yeti + webcam Logitech 720p (voir PROTOCOLE-CAPTURE)
 - ✅ Usage : réunions **pro** — suivre, répondre quand interrogé, présenter un document (module 06)
 - ✅ Pas de clé API Claude pour démarrer (ADR-0004)
+- ✅ V1 = clone vocal uniquement, visage en V2 (ADR-0005)
 
 ## Matériel et budget
-1. **Smartphone** récent disponible pour filmer les sessions (meilleure image que la webcam) ?
+1. *(reporté en V2)* Smartphone récent disponible pour filmer ?
 2. **Casque** ou écouteurs filaires disponibles ?
 3. **Budget mensuel** acceptable hors abonnement Claude (API Claude, GPU loué, éventuels
    services voix/vidéo pour les POC) ?

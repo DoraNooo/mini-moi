@@ -34,6 +34,11 @@ On ne se contente pas d'impressions. Critères de sortie proposés :
 - **Temps réel** : 10 minutes de visio sans décrochage, latence < 1,5 s entre la fin
   d'une question et le début de la réponse.
 
+## Découpage en versions (ADR-0005)
+
+- **V1 — clone vocal** : voix + personnalité ; dans Teams, caméra coupée.
+- **V2 — visage** : avatar vidéo, construit sur la V1.
+
 ## Hors périmètre (pour l'instant)
 
 - Le corps entier / les gestes des mains.
