@@ -1,0 +1,61 @@
+# Bloc lecture : phrases originales, variées en sons du français (voyelles nasales,
+# liaisons, groupes de consonnes, chiffres, sigles, anglicismes du monde pro).
+# Lisez naturellement, comme vous parleriez, pas comme un présentateur.
+
+phrases:
+  - Le chat gris dort sur le buffet pendant que la pluie frappe les volets.
+  - Un vent brusque emporte les feuilles jaunes jusqu'au bout du chemin.
+  - Les enfants jouent au ballon dans la cour, juste en face de l'église.
+  - Il faut vingt-cinq minutes en vélo pour rejoindre le pont suspendu.
+  - On a reçu trois cent quarante-huit réponses au questionnaire de lundi.
+  - La réunion de jeudi est décalée à quatorze heures trente, en salle B.
+  - Le budget du deuxième trimestre dépasse légèrement les prévisions.
+  - Peux-tu m'envoyer le fichier Excel avant la fin de la journée ?
+  - Je pense qu'on devrait prioriser la refonte du back-office.
+  - Le planning initial prévoyait une livraison en mars, on vise maintenant avril.
+  - Les indicateurs sont au vert, sauf le taux de transformation qui stagne.
+  - On a eu un souci avec le fournisseur, mais c'est en bonne voie.
+  - Brigitte a acheté six grosses truffes chez un marchand de Grenoble.
+  - Un oiseau curieux s'est posé sur le rebord de la fenêtre du quatrième.
+  - Les trains régionaux circulent normalement, sauf entre Lyon et Chambéry.
+  - Elle s'est exclamée : « Quelle surprise, je ne m'y attendais pas du tout ! »
+  - Chaque matin, il boit un grand bol de chocolat chaud avec des tartines.
+  - Le jongleur lance quatre quilles en équilibre sur un monocycle.
+  - Nous avons installé une nouvelle version du logiciel cette nuit.
+  - Les huit astronautes ont atterri sans encombre après six mois en orbite.
+  - Vous avez des questions ? Sinon, je vous propose qu'on passe au point suivant.
+  - L'objectif, c'est d'avoir un prototype fonctionnel d'ici la fin du sprint.
+  - Franchement, je ne suis pas convaincu que ce soit la meilleure option.
+  - Le hibou hulule dans le grand chêne au fond du jardin humide.
+  - J'ai noté trois points de vigilance : le délai, le coût et la qualité.
+  - Zoé zigzague entre les voitures garées sur le boulevard Voltaire.
+  - Un bon café, un croissant et le journal : voilà mon dimanche idéal.
+  - La température a chuté de douze degrés en une seule nuit.
+  - Merci à tous pour votre participation, je vous envoie le compte rendu demain.
+  - Si je résume, on valide la phase un et on reporte la phase deux.
+
+emotions:
+  - emotion: enthousiasme
+    phrase: On a enfin signé le contrat, c'est une super nouvelle pour toute l'équipe !
+  - emotion: agacement
+    phrase: Ça fait trois fois que je pose la même question et toujours pas de réponse.
+  - emotion: calme et posé
+    phrase: Prenons le temps de regarder les chiffres ensemble avant de décider.
+  - emotion: amusement
+    phrase: Non mais attends, il est vraiment arrivé en réunion avec ses chaussons ?
+  - emotion: déception
+    phrase: Je pensais sincèrement qu'on y arriverait cette fois-ci.
+  - emotion: hésitation
+    phrase: Alors… je ne sais pas trop, il faudrait peut-être vérifier, enfin… je crois.
+  - emotion: conviction
+    phrase: Je suis persuadé que c'est la bonne direction, et je vais le défendre.
+  - emotion: surprise
+    phrase: Quoi ? Le projet est annulé ? Personne ne m'a prévenu !
+  - emotion: tendresse
+    phrase: Tu te souviens de nos premières vacances ? C'était vraiment un beau moment.
+  - emotion: fatigue
+    phrase: Bon, je crois qu'on a fait le tour pour aujourd'hui, je suis lessivé.
+  - emotion: ironie
+    phrase: Évidemment, le serveur tombe en panne pile le jour de la démo. Génial.
+  - emotion: question sincère
+    phrase: Est-ce que tu pourrais m'expliquer comment tu en es arrivé à cette conclusion ?

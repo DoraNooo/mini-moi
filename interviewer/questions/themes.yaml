@@ -1,0 +1,116 @@
+# Banque de thèmes v1. Chaque session approfondit un thème.
+# Les pistes guident l'intervieweuse ; elle rebondit librement.
+
+enfance:
+  titre: Enfance et famille
+  pistes:
+    - Où as-tu grandi, et à quoi ressemblait la maison ?
+    - Un souvenir d'enfance très précis, avec des odeurs ou des bruits
+    - Le caractère de tes parents, et ce que tu tiens de chacun
+    - Une bêtise mémorable
+    - Ce que tu voulais faire « quand tu serais grand »
+
+etudes:
+  titre: Études et formation
+  pistes:
+    - Le parcours scolaire, matières aimées et détestées
+    - Un prof qui a compté
+    - Comment tu as choisi ta voie
+    - Ce que tu referais différemment
+
+parcours_pro:
+  titre: Parcours professionnel
+  pistes:
+    - Le premier job, les premières galères
+    - Les tournants de carrière et pourquoi
+    - Le meilleur et le pire poste
+    - Une erreur professionnelle dont tu as appris
+
+metier:
+  titre: Le métier au quotidien
+  pistes:
+    - Une journée type, de l'arrivée au départ
+    - Les projets en cours et leur état
+    - Expliquer ton travail à quelqu'un qui n'y connaît rien
+    - Les outils, le jargon, les mots que tu utilises tout le temps
+    - Ce qui t'agace et ce qui te motive
+
+reunions:
+  titre: Toi en réunion
+  pistes:
+    - Comment tu présentes l'avancement d'un projet
+    - Comment tu réponds à une question piège ou à un chiffre que tu n'as pas
+    - Comment tu dis non, comment tu exprimes un désaccord
+    - Tes expressions favorites en réunion
+    - Raconte une réunion qui s'est très bien ou très mal passée
+
+collegues:
+  titre: Collègues et management
+  pistes:
+    - Les personnes avec qui tu travailles le plus, et comment tu les décrirais
+    - Ton style de management ou de collaboration
+    - Un conflit et comment il s'est résolu
+    - Le meilleur chef que tu aies eu
+
+fiertes_echecs:
+  titre: Fiertés et échecs
+  pistes:
+    - Le projet dont tu es le plus fier
+    - Un échec qui t'a marqué
+    - Ce que tu as appris sur toi en traversant une période difficile
+
+opinions_tech:
+  titre: Opinions — technologie et IA
+  pistes:
+    - Ton rapport à la technologie, depuis le début
+    - Ce que tu penses de l'IA, y compris de ce projet de clone
+    - Une techno surcotée, une sous-cotée
+
+opinions_societe:
+  titre: Opinions — société et actualité
+  pistes:
+    - Un sujet d'actualité qui te fait réagir
+    - Une idée reçue que tu aimerais démonter
+    - Ce qui a changé dans la société depuis ton enfance
+
+loisirs:
+  titre: Loisirs et passions
+  pistes:
+    - Ce que tu fais le soir et le week-end
+    - Une passion que peu de gens connaissent
+    - Le sport, les jeux, les activités
+
+gouts:
+  titre: Goûts — musique, films, cuisine
+  pistes:
+    - Les musiques qui ont accompagné ta vie
+    - Un film ou une série que tu revois sans te lasser
+    - Ton plat préféré, celui que tu cuisines
+
+voyages:
+  titre: Voyages et lieux
+  pistes:
+    - Le voyage le plus marquant
+    - Un endroit où tu te sens bien
+    - Un voyage raté ou plein d'imprévus
+
+humour:
+  titre: Humour
+  pistes:
+    - Ce qui te fait rire
+    - Une situation absurde que tu as vécue
+    - Ta façon de détendre l'atmosphère
+
+valeurs:
+  titre: Valeurs et façon de décider
+  pistes:
+    - Ce qui compte vraiment pour toi
+    - Comment tu prends une décision importante, avec un exemple
+    - Une limite que tu ne franchiras jamais
+
+habitudes:
+  titre: Manies et habitudes
+  pistes:
+    - Ta routine du matin et du soir
+    - Des manies que ton entourage remarque
+    - Comment tu t'organises (ou pas)

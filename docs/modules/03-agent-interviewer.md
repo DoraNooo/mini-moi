@@ -30,7 +30,7 @@ simultanées** — c'est ce qui le distingue d'un simple questionnaire :
 | Thème du jour | 20-25 min | Entretien approfondi sur 1 thème |
 | Débat | 5 min | L'agent prend une position contraire → vous argumentez |
 | Lecture | 5 min | Texte phonétiquement riche / phrases avec émotion imposée |
-| Écoute | 2-3 min | L'agent raconte quelque chose, vous écoutez (données « écoute active » visage) |
+| Écoute *(V2 seulement)* | 2-3 min | L'agent raconte quelque chose, vous écoutez (données « écoute active » visage) |
 
 ## Banque de thèmes (v1)
 
@@ -42,7 +42,7 @@ Comment vous prenez une décision · Comment vous réagissez en réunion.
 ## Architecture technique (proposition)
 
 ```
-Micro ──► STT streaming ──► LLM (Claude, prompt « intervieweur » + mémoire) ──► TTS neutre ──► Haut-parleur
+Micro ──► Whisper (GPU) ──► LLM local Ollama (prompt « intervieweuse » + profil) ──► Piper ──► Casque
                                          │
 OBS / ffmpeg ──► video.mp4 + audio.wav   └──► meta.json (question, t_début, t_fin, thème)
 ```

@@ -3,7 +3,7 @@
 > Créer un double numérique (voix + visage + personnalité) suffisamment fidèle pour tenir
 > une conversation en visio (Microsoft Teams).
 
-**Statut :** Phase 0 — cadrage (presque terminée). Prochaine étape : phase 1, l'agent interviewer.
+**Statut :** Phase 1 — l'agent interviewer est prêt à installer : voir [interviewer/README.md](interviewer/README.md).
 
 ## Le projet en une image
 

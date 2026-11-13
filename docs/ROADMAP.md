@@ -5,21 +5,24 @@ Chaque phase a un **critère de sortie** : on ne passe pas à la suivante sans l
 > **V1 = clone vocal** (voix + personnalité, caméra coupée dans Teams).
 > **V2 = ajout du visage**, une fois la V1 validée (ADR-0005).
 
-## Phase 0 — Cadrage *(en cours)*
+## Phase 0 — Cadrage *(terminée)*
 - [x] Mise au propre de la vision et de l'architecture
-- [x] Matériel (ADR-0002) et mode autonome (ADR-0003)
-- [ ] Réponses aux [questions ouvertes](QUESTIONS-OUVERTES.md) restantes (OS, budget API, contexte d'usage)
-- [ ] Choix du stockage chiffré pour `data/`
+- [x] Matériel (ADR-0002), mode autonome (ADR-0003), sans clé API (ADR-0004), V1 vocale (ADR-0005)
+- [x] Questions bloquantes répondues
+- [ ] Chiffrement du disque activé sur le PC (à faire par vous, voir `interviewer/README.md`)
 - **Sortie :** questions bloquantes répondues, stockage chiffré en place.
 
 # V1 — Clone vocal
 
-## Phase 1 — Agent interviewer + enregistrement
-- [ ] Banque de questions v1 (cf. module 03)
-- [ ] Agent conversationnel vocal (LLM local + voix synthétique neutre + écoute)
-- [ ] Enregistreur : audio Blue Yeti WAV + `meta.json` horodaté
-      (+ vidéo webcam **optionnelle**, gratuite, pour réserve V2)
-- [ ] Session pilote de 20 min → vérification qualité audio
+## Phase 1 — Agent interviewer + enregistrement *(en cours)*
+- [x] Banque de 15 thèmes + 30 phrases de lecture + 12 phrases à émotion (`interviewer/questions/`)
+- [x] Agent vocal : Ollama (gemma3:12b) + Whisper + voix Piper (`interviewer/`)
+- [x] Enregistreur : audio Blue Yeti WAV + `meta.json` horodaté + `transcript.md`
+- [x] Commande de diagnostic `python -m interviewer test`
+- [x] Prompt d'analyse inter-sessions pour Claude Code local
+- [ ] Installation sur le PC Windows + `test` au vert *(vous)*
+- [ ] Session pilote de 20 min → vérification qualité audio *(vous, puis analyse ensemble)*
+- [ ] *(optionnel)* vidéo webcam enregistrée en parallèle via OBS, réserve V2
 - **Sortie :** une session pilote exploitable de bout en bout.
 
 ## Phase 2 — Collecte + pipeline de préparation *(en parallèle de la suite)*

@@ -1,0 +1,42 @@
+# Copiez ce fichier en "config.yaml" à la racine du dépôt et adaptez-le.
+
+data_dir: data                  # dossier des enregistrements (ignoré par git, à chiffrer)
+
+interviewer:
+  nom: Léa                      # nom de l'intervieweuse (purement cosmétique)
+  tutoiement: true
+
+audio:
+  input_device: Yeti            # morceau du nom du micro (voir "python -m interviewer devices"), ou null = défaut
+  output_device: null           # votre casque ; null = sortie par défaut de Windows
+  sample_rate: 48000
+  channels: 1                   # mettez 2 si le Yeti refuse le mono
+  subtype: PCM_16               # PCM_16 (Blue Yeti classique) ou PCM_24 (Yeti X)
+
+vad:                            # détection de fin de réponse
+  silence_s: 2.5                # silence (en s) qui termine une réponse — augmentez si l'agent vous coupe
+  margin_db: 10                 # seuil = bruit de fond + marge
+  min_speech_s: 0.6
+
+stt:                            # transcription en direct (la transcription « propre » est refaite en phase 2)
+  model: large-v3-turbo
+  device: auto                  # auto | cuda | cpu
+  language: fr
+
+llm:
+  backend: ollama               # ollama | fake (tests)
+  model: gemma3:12b             # alternatives : mistral-nemo, qwen3:14b
+  url: http://localhost:11434
+  temperature: 0.7
+  max_history: 30               # nombre de messages gardés en mémoire pendant la session
+
+tts:                            # voix de l'intervieweuse (doit être différente de la vôtre)
+  engine: piper                 # piper | sapi | none
+  piper_voice: fr_FR-siwis-medium
+  voices_dir: voices
+
+session:                        # durées des blocs, en minutes
+  echauffement: 3
+  theme: 25
+  debat: 6
+  lecture: 6
