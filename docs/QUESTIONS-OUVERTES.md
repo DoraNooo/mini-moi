@@ -15,14 +15,14 @@ fichier ou dans la conversation.
    services voix/vidéo pour les POC) ?
 
 ## Usage
-5. **Contexte d'usage** : réunions perso, démo, réunions pro ? (détermine les garde-fous et
+4. **Contexte d'usage** : réunions perso, démo, réunions pro ? (détermine les garde-fous et
    la connaissance « métier » à donner au clone : agenda, documents, projets en cours)
-6. **Langue(s)** : français uniquement ?
+5. **Langue(s)** : français uniquement ?
 
 ## Confidentialité
-7. Acceptez-vous d'envoyer des échantillons à des **services tiers** (ElevenLabs, HeyGen…)
+6. Acceptez-vous d'envoyer des échantillons à des **services tiers** (ElevenLabs, HeyGen…)
    pour un POC rapide, ou on reste **100 % local** dès le départ ?
-8. Sujets **interdits** pour l'agent interviewer ?
+7. Sujets **interdits** pour l'agent interviewer ?
 
 ## Organisation
-9. Combien de temps par semaine pour les sessions d'entretien ?
+8. Combien de temps par semaine pour les sessions d'entretien ?

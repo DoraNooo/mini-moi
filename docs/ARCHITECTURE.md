@@ -38,11 +38,10 @@ de retrouver plus tard « la réponse à la question X » et sert de base à la 
 | LLM persona | Claude via API + RAG local | — |
 | Sortie Teams | OBS Virtual Camera + câble audio virtuel (VB-Cable / BlackHole) | — |
 
-Stratégie recommandée : **POC rapide avec les services commerciaux** pour savoir ce qui
-est atteignable avec vos données, puis **migration vers l'open source** pour la maîtrise
-des coûts et de la confidentialité (vos données biométriques ne quittent pas votre machine).
-Les versions et licences exactes sont à revérifier au moment des POC (l'écosystème bouge
-vite ; certaines licences, ex. XTTS-v2, interdisent l'usage commercial).
+Stratégie (ADR-0002) : **open source en local** par défaut. Les services commerciaux ne
+servent, éventuellement, que d'étalon de comparaison pendant un mois. Versions et licences
+à revérifier au moment des POC (l'écosystème bouge vite ; certaines licences, ex. XTTS-v2,
+interdisent l'usage commercial).
 
 ## Matériel (ADR-0002)
 
@@ -64,6 +63,7 @@ Budget VRAM indicatif au runtime :
 
 Entraînement : fine-tune voix OK en local ; avatar personnalisé faisable en local mais
 long (prévoir éventuellement quelques heures de GPU loué, ~1 €/h, ponctuellement).
-- **Budget LLM** : l'abonnement Claude Pro couvre le pilotage du projet ici, mais
+
+**Budget LLM** : l'abonnement Claude Pro couvre le pilotage du projet ici, mais
   l'agent interviewer et le runtime appellent l'API Claude, facturée à part
   (quelques euros par heure d'entretien — à chiffrer en phase 1).
