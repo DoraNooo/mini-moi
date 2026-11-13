@@ -39,7 +39,7 @@ diffuse) suffit pour commencer ; fenêtre jamais dans le dos.
 
 ## Réglages
 
-- Audio : WAV 48 kHz, 24 bits, crête vers -12 dBFS, **aucun traitement** (pas d'AGC,
+- Audio : WAV 48 kHz, 24 bits (16 bits avec un Blue Yeti classique, c'est suffisant), crête vers -12 dBFS, **aucun traitement** (pas d'AGC,
   pas de réduction de bruit Teams/Windows).
 - Vidéo : exposition et balance des blancs **verrouillées**, focus fixe, cadrage buste,
   yeux au tiers supérieur.
