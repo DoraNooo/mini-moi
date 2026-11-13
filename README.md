@@ -41,6 +41,7 @@ collectes de données séparées, on en fait une, bien conçue.
 |---|---|
 | [docs/VISION.md](docs/VISION.md) | Objectifs, périmètre, définition de « convaincant », modes d'usage |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Pipeline technique de bout en bout |
+| [docs/PLAN-ACTION.md](docs/PLAN-ACTION.md) | **Quand tester le clone : jalons et calendrier** |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | Phases, jalons, critères de sortie |
 | [docs/modules/01-voix.md](docs/modules/01-voix.md) | Clonage de la voix |
 | [docs/modules/02-visage.md](docs/modules/02-visage.md) | Avatar vidéo *(V2)* |
